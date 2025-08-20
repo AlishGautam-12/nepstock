@@ -1,458 +1,151 @@
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { ArrowLeft, Upload } from 'lucide-react'
-import React from 'react'
-import { Label } from 'recharts'
 
-export  const AddItem = () => {
+import InputField from "@/components/InputField";
+import { Button } from "@/components/ui/button";
+import { Upload, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useItemStore } from "@/components/store/useItemStore";
+import { useState } from "react";
+
+export default function AddItem() {
+  const addItem = useItemStore((state) => state.addItem);
+
+  const [form, setForm] = useState({
+    itemCode: "",
+    itemName: "",
+    category: "",
+    quantity: "",
+    uom: "",
+    price: "",
+    tax: "",
+    supplier: "",
+    reorderLevel: "",
+    minOrderQty: "",
+    preferredStock: "",
+    expiryDate: "",
+    customAttributes: "",
+    description: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    addItem({
+      itemCode: form.itemCode,
+      itemName: form.itemName,
+      category: form.category,
+      quantity: Number(form.quantity),
+      uom: form.uom,
+      price: Number(form.price),
+      tax: Number(form.tax),
+      supplier: form.supplier,
+      reorderLevel: Number(form.reorderLevel),
+      minOrderQty: Number(form.minOrderQty),
+      preferredStock: Number(form.preferredStock),
+      expiryDate: form.expiryDate,
+      customAttributes: form.customAttributes,
+      description: form.description,
+    });
+
+    setForm({
+      itemCode: "",
+      itemName: "",
+      category: "",
+      quantity: "",
+      uom: "",
+      price: "",
+      tax: "",
+      supplier: "",
+      reorderLevel: "",
+      minOrderQty: "",
+      preferredStock: "",
+      expiryDate: "",
+      customAttributes: "",
+      description: "",
+    });
+    console.log(useItemStore.getState().items);
+
+
+    alert("Item saved!");
+  };
+
   return (
-    <div className='ml-0 py-4 p-5 ml-30 w-320  overflow-y-auto'>
-        <div className='flex item-center gap-4 p-4 border-b border-gray-200'>
-            <Button variant="ghost" size="sm" className='p-1'>
-                <ArrowLeft className='h-4 w-4'/>
-            </Button>
-<h1 className='text-lg  font-medium  '>Add Item</h1>
-</div>
-
-        <div>
-
-        <h2 className='text-base text-lg font-medium text-gray-800 mt-5'>Basic Information</h2>
-        <p className='text-sm text-gray-500 mb-5'>Enter Basic Information of the item</p>
-       <div className="grid grid-cols-2 gap-4 w-280 gap-x-60 ">
-        <div className="flex flex-col">
-        <label className="mb-1 text-sm font-medium">Name</label>
-        <Input
-          type="text"
-          placeholder="Enter name"
-          className="w-full pl-3 pr-3 py-2"
-        />
+    <div className="fixed top-0 left-60 h-screen w-full p-5 overflow-y-auto mt-5">
+      {/* Header */}
+      <div className="flex items-center gap-2 p-4 border-b border-gray-200">
+        <Link to="/items">
+          <Button variant="ghost" size="sm" className="p-1">
+            <ArrowLeft className="h-4 w-4" />
+          </Button>
+        </Link>
+        <h1 className="text-lg font-medium">Add Item</h1>
       </div>
-      <div className='flex flex-col'>
-        <label className='mb-1 text-sm font-medium'>ItemName</label>
-      <Input
-                type="text"
-                placeholder="Search"
-                className="w-full pl-10 pr-3 py-2"
-              />
-              </div>
 
-              <div className='flex flex-col'>
-              <label className='mb-1 text-sm font-medium'>Category</label>
-        <Input
-                type="text"
-                placeholder="Search"
-                className="w-full pl-10 pr-3 py-2"
-              />
-              </div>
-              
-        <div className='flex flex-col'>
-              <label className='mb-1 text-sm font-medium'>Category</label>
-        <Input
-                type="text"
-                placeholder="Search"
-                className="w-full pl-10 pr-3 py-2"
-              />
-              </div>
-        <div className='flex flex-col'>
-              <label className='mb-1 text-sm font-medium'>Category</label>
-        <Input
-                type="text"
-                placeholder="Search"
-                className="w-full pl-10 pr-3 py-2"
-              />
-              </div>
-
-               <div className='flex flex-col'>
-              <label className='mb-1 text-sm font-medium'>Category</label>
-        <Input
-                type="text"
-                placeholder="Search"
-                className="w-full pl-10 pr-3 py-2"
-              />
-              </div>
-</div>
-
-        </div>
-        <div className='mt-10'>
-            <div className='space-y-4'>
-       <h1 className='text-base font-medium text-gray-900 m-1'>Advanced Information</h1>
-       <p className='text-sm text-gray-500'>Enter Advanced information of the item</p>
-       </div>
-      <div className='grid grid-cols-2 gap-4 w-280 gap-x-60 mt-5'>
-        <div className='flex flex-col'>
-              <label className='mb-1 text-sm font-medium'>Category</label>
-        <Input
-                type="text"
-                placeholder="Search"
-                className="w-full pl-10 pr-3 py-2"
-              />
-              </div>
-        <div className='flex flex-col'>
-              <label className='mb-1 text-sm font-medium'>Category</label>
-        <Input
-                type="text"
-                placeholder="Search"
-                className="w-full pl-10 pr-3 py-2"
-              />
-              </div>
-      <div className='flex flex-col'>
-              <label className='mb-1 text-sm font-medium'>Category</label>
-        <Input
-                type="text"
-                placeholder="Search"
-                className="w-full pl-10 pr-3 py-2"
-              />
-              </div>
-                 <div className='flex flex-col'>
-              <label className='mb-1 text-sm font-medium'>Category</label>
-        <Input
-                type="text"
-                placeholder="Search"
-                className="w-full pl-10 pr-3 py-2"
-              />
-              </div>
-                 <div className='flex flex-col'>
-              <label className='mb-1 text-sm font-medium'>Category</label>
-        <Input
-                type="text"
-                placeholder="Search"
-                className="w-full pl-10 pr-3 py-2"
-              />
-              </div>
-                 <div className='flex flex-col'>
-              <label className='mb-1 text-sm font-medium'>Category</label>
-        <Input
-                type="text"
-                placeholder="Search"
-                className="w-full pl-10 pr-3 py-2"
-              />
-              </div>
-              </div>
-
-               <div className='w-300 mt-5'>
-              <label className='mb-1 text-sm font-medium'>Description</label>
-        <Input
-                type="text"
-                placeholder="Description"
-                className="w-full h-20 pl-10 pr-3 py-2"
-              />
-              </div>
-
-
-    <div className="space-y-4">
-          <div>
-           <h2 className="text-base font-medium text-gray-900">Add Image</h2>
-         </div>
-         <div className="border-2 border-dashed border-gray-300 rounded-lg p-8">
-           <div className="flex flex-col items-center justify-center space-y-4">
-               <div className="p-3 bg-gray-100 rounded-full">
-                 <Upload className="h-6 w-6 text-gray-400" />
-               </div>
-               <div className="text-center">
-                 <p className="text-sm text-gray-600">Drag and drop files here</p>
-                 <div className="flex items-center gap-2 my-2">
-                   <div className="h-px bg-gray-300 flex-1"></div>
-                   <span className="text-xs text-gray-400 px-2">OR</span>
-                   <div className="h-px bg-gray-300 flex-1"></div>
-                 </div>
-                 <Button variant="link" className="text-blue-600 p-0 h-auto font-normal">
-                   Browse Files
-                 </Button>
-               </div>
-             </div>
-           </div>
-         </div>
-
-          {/* Action Buttons */}
-         <div className="flex justify-end gap-3 pt-6">
-           <Button variant="outline" className="px-8 bg-transparent">
-             Cancel
-           </Button>
-           <Button className="px-8 bg-black hover:bg-gray-800">Save</Button>
-         </div>
-
-
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Basic Info */}
         <div>
-
-
+          <h2 className="text-base font-medium text-gray-800 mt-5">Basic Information</h2>
+          <div className="grid grid-cols-2 gap-6 mt-3">
+            <InputField name="itemCode" label="Item Code" value={form.itemCode} onChange={handleChange} placeholder="ITM-001" />
+            <InputField name="itemName" label="Item Name" value={form.itemName} onChange={handleChange} placeholder="Samsung Galaxy S23" />
+            <InputField name="category" label="Category" value={form.category} onChange={handleChange} placeholder="Electronics" />
+            <InputField name="quantity" label="Quantity" value={form.quantity} onChange={handleChange} placeholder="100" />
+            <InputField name="uom" label="Unit of Measure" value={form.uom} onChange={handleChange} placeholder="pcs, box, kg" />
+            <InputField name="price" label="Price Per Unit" value={form.price} onChange={handleChange} placeholder="500" />
+            <InputField name="tax" label="Tax / VAT (%)" value={form.tax} onChange={handleChange} placeholder="13" />
+          </div>
         </div>
 
+        {/* Advanced Info */}
+        <div className="mt-10">
+          <h2 className="text-base font-medium text-gray-900">Advanced Information</h2>
+          <div className="grid grid-cols-2 gap-6 mt-3">
+            <InputField name="supplier" label="Supplier" value={form.supplier} onChange={handleChange} placeholder="ABC Suppliers" />
+            <InputField name="reorderLevel" label="Reorder Level" value={form.reorderLevel} onChange={handleChange} placeholder="20" />
+            <InputField name="minOrderQty" label="Minimum Order Qty" value={form.minOrderQty} onChange={handleChange} placeholder="5" />
+            <InputField name="preferredStock" label="Preferred Stock Level" value={form.preferredStock} onChange={handleChange} placeholder="200" />
+            <InputField name="expiryDate" label="Expiry Date" value={form.expiryDate} onChange={handleChange} placeholder="yyyy-mm-dd" />
+            <InputField name="customAttributes" label="Custom Attributes" value={form.customAttributes} onChange={handleChange} placeholder="Color: Red, Size: L" />
+          </div>
 
+          {/* Description */}
+          <div className="mt-5">
+            <label className="mb-1 text-sm font-medium">Item Description</label>
+            <textarea
+              name="description"
+              value={form.description}
+              onChange={handleChange}
+              placeholder="Enter detailed description"
+              className="w-full h-28 border rounded-md p-3 text-sm"
+            />
+          </div>
+        </div>
 
-   </div>
-   </div>
- 
-  )
+        {/* Image Upload */}
+        <div className="space-y-4 mt-10">
+          <h2 className="text-base font-medium text-gray-900">Add Images</h2>
+          <div className="border-2 border-dashed border-gray-300 rounded-lg p-8">
+            <div className="flex flex-col items-center justify-center space-y-4">
+              <div className="p-3 bg-gray-100 rounded-full">
+                <Upload className="h-6 w-6 text-gray-400" />
+              </div>
+              <div className="text-center">
+                <p className="text-sm text-gray-600">Drag and drop files here</p>
+                <Button variant="link" className="text-blue-600 p-0 h-auto font-normal">Browse Files</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Actions */}
+        <div className="flex  gap-3 pt-6 sticky bottom-0 bg-white ml-250">
+          <Button variant="outline" className="px-8">Cancel</Button>
+          <Button type="submit" className="px-8 bg-black hover:bg-gray-800">Save</Button>
+        </div>
+      </form>
+    </div>
+  );
 }
-
-
-// "use client"
-
-// import { useState } from "react"
-// import { ArrowLeft, Upload } from "lucide-react"
-// import { Button } from "@/components/ui/button"
-// import { Input } from "@/components/ui/input"
-// import { Label } from "@/components/ui/label"
-// import { Textarea } from "@/components/ui/textarea"
-// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-
-// export default function AddItem() {
-//   const [formData, setFormData] = useState({
-//     itemName: "",
-//     category: "",
-//     unitOfMeasure: "",
-//     quantity: "",
-//     pricePerUnit: "",
-//     suppliers: "",
-//     reorderLevel: "",
-//     minimumOrder: "",
-//     preferredStock: "",
-//     expiryDate: "",
-//     customAttributes: "",
-//     itemDescription: "",
-//   })
-
-//   const handleInputChange = (field: string, value: string) => {
-//     setFormData((prev) => ({ ...prev, [field]: value }))
-//   }
-
-//   return (
-//     <div className="max-w-4xl mx-auto bg-white min-h-screen">
-//       {/* Header */}
-//       <div className="flex items-center gap-4 p-4 border-b border-gray-200">
-//         <Button variant="ghost" size="sm" className="p-1">
-//           <ArrowLeft className="h-4 w-4" />
-//         </Button>
-//         <h1 className="text-lg font-medium">Add Item</h1>
-//       </div>
-
-//       <div className="p-6 space-y-8">
-//         {/* Basic Information Section */}
-//         <div className="space-y-4">
-//           <div>
-//             <h2 className="text-base font-medium text-gray-900 mb-1">Basic Information</h2>
-//             <p className="text-sm text-gray-500">Enter basic informations of the item</p>
-//           </div>
-
-//           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-//             <div className="space-y-2">
-//               <Label htmlFor="itemName" className="text-sm font-medium text-gray-700">
-//                 Item Name
-//               </Label>
-//               <Input
-//                 id="itemName"
-//                 placeholder="Enter Item Name"
-//                 value={formData.itemName}
-//                 onChange={(e) => handleInputChange("itemName", e.target.value)}
-//                 className="bg-gray-50 border-gray-200"
-//               />
-//             </div>
-
-//             <div className="space-y-2">
-//               <Label htmlFor="category" className="text-sm font-medium text-gray-700">
-//                 Category
-//               </Label>
-//               <Select value={formData.category} onValueChange={(value) => handleInputChange("category", value)}>
-//                 <SelectTrigger className="bg-gray-50 border-gray-200">
-//                   <SelectValue placeholder="Select Category" />
-//                 </SelectTrigger>
-//                 <SelectContent>
-//                   <SelectItem value="electronics">Electronics</SelectItem>
-//                   <SelectItem value="clothing">Clothing</SelectItem>
-//                   <SelectItem value="food">Food</SelectItem>
-//                 </SelectContent>
-//               </Select>
-//             </div>
-
-//             <div className="space-y-2">
-//               <Label htmlFor="unitOfMeasure" className="text-sm font-medium text-gray-700">
-//                 Unit of Measure
-//               </Label>
-//               <Input
-//                 id="unitOfMeasure"
-//                 placeholder="Enter Unit of Measure"
-//                 value={formData.unitOfMeasure}
-//                 onChange={(e) => handleInputChange("unitOfMeasure", e.target.value)}
-//                 className="bg-gray-50 border-gray-200"
-//               />
-//             </div>
-//             <div className="space-y-2">
-//               <Label htmlFor="unitOfMeasure" className="text-sm font-medium text-gray-700">
-//                 Unit of Measure
-//               </Label>
-//               <Input
-//                 id="unitOfMeasure"
-//                 placeholder="Enter Unit of Measure"
-//                 value={formData.unitOfMeasure}
-//                 onChange={(e) => handleInputChange("unitOfMeasure", e.target.value)}
-//                 className="bg-gray-50 border-gray-200"
-//               />
-//             </div>
-
-//             <div className="space-y-2">
-//               <Label htmlFor="quantity" className="text-sm font-medium text-gray-700">
-//                 Quantity
-//               </Label>
-//               <Input
-//                 id="quantity"
-//                 placeholder="Enter Quantity"
-//                 value={formData.quantity}
-//                 onChange={(e) => handleInputChange("quantity", e.target.value)}
-//                 className="bg-gray-50 border-gray-200"
-//               />
-//             </div>
-
-//             <div className="space-y-2 md:col-span-1">
-//               <Label htmlFor="pricePerUnit" className="text-sm font-medium text-gray-700">
-//                 Price Per Unit
-//               </Label>
-//               <Input
-//                 id="pricePerUnit"
-//                 placeholder="Enter Price Per Unit"
-//                 value={formData.pricePerUnit}
-//                 onChange={(e) => handleInputChange("pricePerUnit", e.target.value)}
-//                 className="bg-gray-50 border-gray-200"
-//               />
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Advanced Information Section */}
-//         <div className="space-y-4">
-//           <div>
-//             <h2 className="text-base font-medium text-gray-900 mb-1">Advanced Information</h2>
-//             <p className="text-sm text-gray-500">Enter Advanced informations of the item</p>
-//           </div>
-
-//           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-//             <div className="space-y-2">
-//               <Label htmlFor="suppliers" className="text-sm font-medium text-gray-700">
-//                 Suppliers
-//               </Label>
-//               <Input
-//                 id="suppliers"
-//                 placeholder="Enter Suppliers"
-//                 value={formData.suppliers}
-//                 onChange={(e) => handleInputChange("suppliers", e.target.value)}
-//                 className="bg-gray-50 border-gray-200"
-//               />
-//             </div>
-
-//             <div className="space-y-2">
-//               <Label htmlFor="reorderLevel" className="text-sm font-medium text-gray-700">
-//                 Reorder Level
-//               </Label>
-//               <Input
-//                 id="reorderLevel"
-//                 placeholder="Enter Reorder Level"
-//                 value={formData.reorderLevel}
-//                 onChange={(e) => handleInputChange("reorderLevel", e.target.value)}
-//                 className="bg-gray-50 border-gray-200"
-//               />
-//             </div>
-
-//             <div className="space-y-2">
-//               <Label htmlFor="minimumOrder" className="text-sm font-medium text-gray-700">
-//                 Minimum Order
-//               </Label>
-//               <Input
-//                 id="minimumOrder"
-//                 placeholder="Enter Min Order"
-//                 value={formData.minimumOrder}
-//                 onChange={(e) => handleInputChange("minimumOrder", e.target.value)}
-//                 className="bg-gray-50 border-gray-200"
-//               />
-//             </div>
-
-//             <div className="space-y-2">
-//               <Label htmlFor="preferredStock" className="text-sm font-medium text-gray-700">
-//                 Preferred Stock
-//               </Label>
-//               <Input
-//                 id="preferredStock"
-//                 placeholder="Enter Preferred Stock"
-//                 value={formData.preferredStock}
-//                 onChange={(e) => handleInputChange("preferredStock", e.target.value)}
-//                 className="bg-gray-50 border-gray-200"
-//               />
-//             </div>
-
-//             <div className="space-y-2">
-//               <Label htmlFor="expiryDate" className="text-sm font-medium text-gray-700">
-//                 Expiry Date
-//               </Label>
-//               <Input
-//                 id="expiryDate"
-//                 type="date"
-//                 value={formData.expiryDate}
-//                 onChange={(e) => handleInputChange("expiryDate", e.target.value)}
-//                 className="bg-gray-50 border-gray-200"
-//               />
-//             </div>
-
-//             <div className="space-y-2">
-//               <Label htmlFor="customAttributes" className="text-sm font-medium text-gray-700">
-//                 Custom Attributes
-//               </Label>
-//               <Input
-//                 id="customAttributes"
-//                 placeholder="Enter Custom Attributes"
-//                 value={formData.customAttributes}
-//                 onChange={(e) => handleInputChange("customAttributes", e.target.value)}
-//                 className="bg-gray-50 border-gray-200"
-//               />
-//             </div>
-
-//             <div className="space-y-2 md:col-span-2">
-//               <Label htmlFor="itemDescription" className="text-sm font-medium text-gray-700">
-//                 Item Description
-//               </Label>
-//               <Textarea
-//                 id="itemDescription"
-//                 placeholder="Enter Item Description"
-//                 value={formData.itemDescription}
-//                 onChange={(e) => handleInputChange("itemDescription", e.target.value)}
-//                 className="bg-gray-50 border-gray-200 min-h-[100px]"
-//               />
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Add Image Section */}
-//         <div className="space-y-4">
-//           <div>
-//             <h2 className="text-base font-medium text-gray-900">Add Image</h2>
-//           </div>
-
-//           <div className="border-2 border-dashed border-gray-300 rounded-lg p-8">
-//             <div className="flex flex-col items-center justify-center space-y-4">
-//               <div className="p-3 bg-gray-100 rounded-full">
-//                 <Upload className="h-6 w-6 text-gray-400" />
-//               </div>
-//               <div className="text-center">
-//                 <p className="text-sm text-gray-600">Drag and drop files here</p>
-//                 <div className="flex items-center gap-2 my-2">
-//                   <div className="h-px bg-gray-300 flex-1"></div>
-//                   <span className="text-xs text-gray-400 px-2">OR</span>
-//                   <div className="h-px bg-gray-300 flex-1"></div>
-//                 </div>
-//                 <Button variant="link" className="text-blue-600 p-0 h-auto font-normal">
-//                   Browse Files
-//                 </Button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Action Buttons */}
-//         <div className="flex justify-end gap-3 pt-6">
-//           <Button variant="outline" className="px-8 bg-transparent">
-//             Cancel
-//           </Button>
-//           <Button className="px-8 bg-black hover:bg-gray-800">Save</Button>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-

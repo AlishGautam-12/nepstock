@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
+
 const rows = [
   { id: 1, name: "Potato", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.1200", sold: 123 },
   { id: 2, name: "Tomato", expiry: "2083/2/12", batch: "13", stock: "42/80", price: "Rs.800", sold: 98 },
@@ -22,6 +23,7 @@ const rows = [
   { id: 7, name: "Potato", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.1200", sold: 123 },
   { id: 8, name: "Tomato", expiry: "2083/2/12", batch: "13", stock: "42/80", price: "Rs.800", sold: 98 },
 ];
+
 
 const ItemList = () => {
   return (

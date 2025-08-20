@@ -45,7 +45,8 @@ import Dashboard from "@/pages/Dashboard";
 import Navbar from "./components/layout/Navbar";
 import Sidebar from "./components/layout/Sidebar";
 import ItemList from "@/pages/ItemList"; 
-import  {AddItem}  from "./pages/AddItem";
+import  AddItem  from "./pages/AddItem";
+import  {AddEmployee} from "./pages/AddEmployee";
 
 function App() {
   return (
@@ -62,11 +63,12 @@ function App() {
           </div>
 
           {/* Push content below navbar */}
-          <main className="p-5 mt-16 ml-60 w-full">
+          <main className="p-5 mt-16 ml-30 w-full">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/items" element={<ItemList />} />
                <Route path="/Additem" element={<AddItem />} />
+                <Route path="/employee" element={<AddEmployee />} />
             </Routes>
           </main>
         </div>
