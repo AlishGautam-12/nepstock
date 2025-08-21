@@ -125,12 +125,12 @@ export default function AddItem() {
         </div>
 
         {/* Image Upload */}
-        <div className="space-y-4 mt-10">
+        <div className="space-y-2 mt-3">
           <h2 className="text-base font-medium text-gray-900">Add Images</h2>
           <div className="border-2 border-dashed border-gray-300 rounded-lg p-8">
             <div className="flex flex-col items-center justify-center space-y-4">
               <div className="p-3 bg-gray-100 rounded-full">
-                <Upload className="h-6 w-6 text-gray-400" />
+                <Upload className="h-2 w-6 text-gray-400" />
               </div>
               <div className="text-center">
                 <p className="text-sm text-gray-600">Drag and drop files here</p>
@@ -141,7 +141,7 @@ export default function AddItem() {
         </div>
 
         {/* Actions */}
-        <div className="flex  gap-3 pt-6 sticky bottom-0 bg-white ml-250">
+        <div className="flex  gap-3 pt-2 mb-10  bg-white ml-250">
           <Button variant="outline" className="px-8">Cancel</Button>
           <Button type="submit" className="px-8 bg-black hover:bg-gray-800">Save</Button>
         </div>

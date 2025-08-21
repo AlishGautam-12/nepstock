@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const menuItems = [
   { name: "Dashboard", icon: Home, path: "/" },
   { name: "Items", icon: Package, path: "/items" },
-  { name: "Customers", icon: Users, path: "/customers" },
+  { name: "Customers", icon: Users, path: "/customer" },
   { name: "History", icon: History, path: "/history" },
   { name: "Bill", icon: BookAIcon, path: "/bill" },
   { name: "Counters", icon: Settings, path: "/counters" },
@@ -15,8 +15,9 @@ const menuItems = [
 
 export default function Sidebar() {
   return (
-   <aside className="w-60 bg-white shadow-md h-screen fixed left-0
-    top-20">
+<aside className="w-60  bg-white shadow-md h-screen fixed left-0 top-0 ">
+
+  
   <div className="p-4 bg-black text-white  font-bold text-lg ">Dashboard</div>
   <nav className="mt-2 flex flex-col gap-1">
     {menuItems.map((item) => (
