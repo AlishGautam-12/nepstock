@@ -11,10 +11,10 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-white text-black  flex items-center justify-between  px-6 py-3 shadow-md">
+    <nav className="  bg-white text-black  flex items-center justify-between  px-6 py-3 shadow-md ">
       {/* Left: Company Name + Branch Input */}
-      <div className="flex items-center space-x-4">
-        <div className="text-2xl font-bold">StockNep</div>
+      <div className="flex items-center space-x-4 ">
+        <div className=" text-2xl font-bold ">StockNep</div>
 
         <div className="relative">
           <input
