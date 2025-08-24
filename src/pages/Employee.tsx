@@ -20,7 +20,7 @@ export const Employees = () => {
   const deleteEmployee = useEmployeeStore((state) => state.deleteEmployee);
 
   return (
-    <div className="w-full md:ml-5 p-4 mt-10">
+    <div className="w-full md:ml-5 p-4 ">
       
       <h2 className="font-semibold mb-4 text-lg">Employee</h2>
 

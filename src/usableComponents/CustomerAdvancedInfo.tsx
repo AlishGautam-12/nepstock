@@ -5,7 +5,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 interface Props {
-  formData: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  formData:any
   handleInputChange: (field: string, value: string) => void
 }
 
@@ -42,15 +43,29 @@ export function CustomerAdvancedInfo({ formData, handleInputChange }: Props) {
 
           {/* Right */}
           <div className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="paymentMethod">Payment Method</Label>
-              <Input
-                id="paymentMethod"
-                placeholder="Enter Payment Method"
-                value={formData.paymentMethod}
-                onChange={(e) => handleInputChange("paymentMethod", e.target.value)}
-              />
+            
+
+             <div className="space-y-2 ">
+              <Label htmlFor="paymentmethods">Payment Methods</Label>
+              <Select
+                value={formData.paymentmethods}
+                onValueChange={(value) => handleInputChange("paymentmethods", value)}
+              >
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Esewa">Esewa</SelectItem>
+                  <SelectItem value="khalti">Khalti</SelectItem>
+        
+                </SelectContent>
+              </Select>
             </div>
+         
+
+
+
+
             <div className="space-y-2">
               <Label htmlFor="deliveryPreferences">Delivery Preferences</Label>
               <Select

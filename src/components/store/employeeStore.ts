@@ -16,8 +16,11 @@ export interface Employee {
 }
 
 interface EmployeeStore {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  deleteEmployee: any;
   employees: Employee[];
   addEmployee: (employee: Employee) => void;
+  
 }
 
 export const useEmployeeStore = create<EmployeeStore>((set) => ({

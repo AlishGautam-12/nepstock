@@ -16,14 +16,16 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const rows = [
-  { id: 1, name: "Potato", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.1200", sold: 123 },
-  { id: 2, name: "Tomato", expiry: "2083/2/12", batch: "13", stock: "42/80", price: "Rs.800", sold: 98 },
-  { id: 3, name: "Potato", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.1200", sold: 123 },
-  { id: 4, name: "Tomato", expiry: "2083/2/12", batch: "13", stock: "42/80", price: "Rs.800", sold: 98 },
-  { id: 5, name: "Potato", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.1200", sold: 123 },
-  { id: 6, name: "Tomato", expiry: "2083/2/12", batch: "13", stock: "42/80", price: "Rs.800", sold: 98 },
-  { id: 7, name: "Potato", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.1200", sold: 123 },
-  { id: 8, name: "Tomato", expiry: "2083/2/12", batch: "13", stock: "42/80", price: "Rs.800", sold: 98 },
+  { id: 1, name: "Mobile", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.12000", sold: 123 },
+  { id: 2, name: "Mobile", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.12000", sold: 123 },
+  { id: 3, name: "Mobile", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.12000", sold: 123 },
+  { id: 4, name: "Mobile", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.12000", sold: 123 },
+  { id: 5, name: "Mobile", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.12000", sold: 123 },
+  { id: 6, name: "Mobile", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.12000", sold: 123 },
+  { id: 7, name: "Mobile", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.12000", sold: 123 },
+  { id: 8, name: "Mobile", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.12000", sold: 123 },
+  { id: 9, name: "Mobile", expiry: "2083/2/12", batch: "12", stock: "56/100", price: "Rs.12000", sold: 123 },
+
 ];
 
 const ItemList = () => {

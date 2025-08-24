@@ -1,11 +1,8 @@
 
-
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import InputField from '@/components/InputField'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, Upload, User } from 'lucide-react'
-import React, { useState, type ChangeEvent } from 'react'
+import  { useState, type ChangeEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useEmployeeStore } from '@/components/store/employeeStore'
 
@@ -29,7 +26,7 @@ export const AddEmployee = () => {
 
   const [image, setImage] = useState<string | null>(null);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
@@ -119,6 +116,7 @@ export const AddEmployee = () => {
             label="Email Address"
             onChange={handleChange}
             placeholder="Enter Email Address"
+          
             value={form.email}
           />
         </div>

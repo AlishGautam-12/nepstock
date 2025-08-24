@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 
 import React from "react";
-import { useEmployeeStore } from "@/components/store/employeeStore";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -15,15 +16,46 @@ import {
 import { Search, Eye, Edit, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export const Customers = () => {
-  const employees = useEmployeeStore((state) => state.employees);
-  const deleteEmployee = useEmployeeStore((state) => state.deleteEmployee);
+interface Customer {
+  image: any;
+  id: number;
+  customerId: string;
+  fullname: string;
+  email: string;
+  position: string;
+  salary: string;
+
+}
+
+const customers: Customer[] = [
+  {
+    id: 1,
+    customerId: "Cust-001",
+    fullname: "Alish Gautam",
+    email: "alishgautam12",
+    position: "FullStack",
+    salary: "50000",
+    image: undefined
+  },
+   {
+     id: 2,
+     customerId: "Cust-002",
+     fullname: "Alish Gautam",
+     email: "alishgautam12",
+     position: "FullStack",
+     salary: "50000",
+     image: undefined
+   },
+];
+
+export const Customer: React.FC = () => {
+ 
 
   return (
-    <div className="p-4 mt-16 w-full ml-0 lg:ml-0">
-      <h2 className="font-semibold mb-4 text-lg">Employee</h2>
+    <div className="p-4  w-full ml-0 lg:ml-0">
+      <h2 className="font-semibold mb-4 text-lg">Customer</h2>
 
-      {/* 🔍 Top bar: Search + Buttons */}
+      {/*  Top bar: Search + Buttons */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-4">
         {/* Search Input */}
         <div className="relative w-full sm:w-80">
@@ -65,24 +97,24 @@ export const Customers = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {employees.map((emp, index) => (
-              <TableRow key={emp.id}>
+            {customers.map((cust, index) => (
+              <TableRow key={cust.id}>
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>
-                  {emp.image ? (
+                  {cust.image ? (
                     <img
-                      src={emp.image}
-                      alt={emp.fullName}
+                      src={cust.image}
+                      alt={cust.fullname}
                       className="w-10 h-10 rounded-full object-cover border"
                     />
                   ) : (
                     <div className="w-10 h-10 rounded-full bg-gray-300" />
                   )}
                 </TableCell>
-                <TableCell>{emp.fullName}</TableCell>
-                <TableCell>{emp.email}</TableCell>
-                <TableCell>{emp.position}</TableCell>
-                <TableCell>{emp.salary}</TableCell>
+                <TableCell>{cust.fullname}</TableCell>
+                <TableCell>{cust.email}</TableCell>
+                <TableCell>{cust.position}</TableCell>
+                <TableCell>{cust.salary}</TableCell>
                 <TableCell className="flex gap-2">
                   <button className="p-1 hover:bg-gray-100 rounded">
                     <Eye className="w-4 h-4 text-blue-500" />
@@ -91,7 +123,7 @@ export const Customers = () => {
                     <Edit className="w-4 h-4 text-green-500" />
                   </button>
                   <button
-                    onClick={() => deleteEmployee(emp.id)}
+                   
                     className="p-1 hover:bg-gray-100 rounded"
                   >
                     <Trash2 className="w-4 h-4 text-red-500" />

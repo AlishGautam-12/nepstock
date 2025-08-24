@@ -1,6 +1,6 @@
 import InputField from "@/components/InputField";
 import { Button } from "@/components/ui/button";
-import React, { useState, type ChangeEvent } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useEmployeeStore } from "@/components/store/employeeStore"; //  ideally rename to counterStore later
 import { Input } from "@/components/ui/input";
@@ -22,7 +22,7 @@ export const Addcounter = () => {
     lastUpdate: "",
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
