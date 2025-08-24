@@ -109,6 +109,15 @@ export function AddCustomerForm() {
                     onChange={(e) => handleInputChange("address", e.target.value)}
                   />
                 </div>
+                  <div className="space-y-2">
+                  <Label htmlFor="address">Address</Label>
+                  <Input
+                    id="address"
+                    placeholder="Enter Address"
+                    value={formData.address}
+                    onChange={(e) => handleInputChange("address", e.target.value)}
+                  />
+                </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="dob">DOB</Label>
