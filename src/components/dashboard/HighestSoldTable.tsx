@@ -21,6 +21,7 @@ const rows = [
 ];
 
 export default function HighestSoldTable() {
+  
   return (
     <div className="mt-6">
       <h2 className="font-semibold mb-2">Highest Sold Items</h2>
@@ -51,6 +52,6 @@ export default function HighestSoldTable() {
         </TableBody>
       </Table>
     </div>
-    
+
   );
 }

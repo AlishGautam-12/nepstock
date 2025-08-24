@@ -9,6 +9,7 @@ import HighestSoldTable from "@/components/dashboard/HighestSoldTable";
 import { Package, Users, ShoppingCart } from "lucide-react";
 
 export default function Dashboard() {
+
   return (
     <div className="flex flex-col space-y-6 p-4 md:p-6 w-full h-full overflow-y-auto">
       {/* Top row: Stats cards */}
