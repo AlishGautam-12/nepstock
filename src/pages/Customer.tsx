@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 
-import React from "react";
+import React, { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,19 +15,13 @@ import {
 } from "@/components/ui/table";
 import { Search, Eye, Edit, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import Pagination from "@/usableComponents/Pagination";
 
-interface Customer {
-  image: any;
-  id: number;
-  customerId: string;
-  fullname: string;
-  email: string;
-  position: string;
-  salary: string;
 
-}
+import type { CustomerType } from "@/types/Customers";
 
-const customers: Customer[] = [
+
+const customers: CustomerType[] = [
   {
     id: 1,
     customerId: "Cust-001",
@@ -49,7 +43,14 @@ const customers: Customer[] = [
 ];
 
 export const Customer: React.FC = () => {
- 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 1; // change as needed
+
+  // Pagination logic
+  const totalPages = Math.ceil(customers.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const currentCustomers = customers.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <div className="p-4  w-full ml-0 lg:ml-0">
@@ -133,6 +134,10 @@ export const Customer: React.FC = () => {
             ))}
           </TableBody>
         </Table>
+      </div>
+       {/* Pagination */}
+      <div className="mt-4 flex justify-center">
+        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
       </div>
     </div>
   );

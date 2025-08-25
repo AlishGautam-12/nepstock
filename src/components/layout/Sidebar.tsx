@@ -9,10 +9,10 @@ const menuItems = [
   { name: "Dashboard", icon: Home, path: "/" },
   { name: "Items", icon: Package, path: "/items" },
   { name: "Customers", icon: Users, path: "/customer" },
-  { name: "History", icon: History, path: "/history" },
-  { name: "Bill", icon: BookAIcon, path: "/bill" },
   { name: "Counters", icon: Settings, path: "/counter" },
   { name: "Employee", icon: Settings2Icon, path: "/employee" },
+  { name: "History", icon: History, path: "/history" },
+  { name: "Bill", icon: BookAIcon, path: "/bill" },
   { name: "Setting", icon: Settings, path: "/setting" },
 ];
 

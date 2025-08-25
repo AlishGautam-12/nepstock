@@ -1,12 +1,9 @@
-
-
-
-import React from "react";
 import StatCard from "@/components/dashboard/StatCard";
 import InventoryChart from "@/components/dashboard/InventoryChart"; // Bar chart
 import LineGraph from "@/components/dashboard/LineGraph";           // Line chart
 import HighestSoldTable from "@/components/dashboard/HighestSoldTable";
 import { Package, Users, ShoppingCart } from "lucide-react";
+
 
 export default function Dashboard() {
 
@@ -44,5 +41,7 @@ export default function Dashboard() {
       {/* Table */}
       <HighestSoldTable />
     </div>
+
+    
   );
 }

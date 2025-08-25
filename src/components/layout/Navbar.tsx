@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Bell, ChevronDown } from "lucide-react";
 import Logo from "@/StockNeplogo/stock-nep-logo.svg";
 

@@ -12,6 +12,10 @@ import { AddCustomerForm } from "./pages/Addcustomer";
 import  {Customer}  from "./pages/Customer";
 import { Addcounter } from "./pages/Addcounter";
 import { Counter } from "./pages/Counter";
+import Setting from "./pages/Setting";
+import History from "./pages/History";
+import Bill from "./pages/Bill";
+
 
 
 function App() {
@@ -38,6 +42,9 @@ function App() {
               <Route path="/customer" element={<Customer />} />
               <Route path="/counter" element={<Counter/>} />
               <Route path="/Addcounter" element={<Addcounter />} />
+              <Route path="/setting" element={<Setting />} />
+              <Route path="/history" element={<History />} />
+              <Route path="/bill" element={<Bill />} />
               </Routes>
           </main>
         </div>
