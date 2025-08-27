@@ -77,7 +77,7 @@ export const AddEmployee = () => {
 
           {/* Profile Upload */}
 <div className="flex flex-col items-center space-y-4">
-  <div className="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+  <div className="w-32 ml-30 h-32 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
     {image ? (
       <img
         src={image}
@@ -101,7 +101,7 @@ export const AddEmployee = () => {
   {/* Button triggers file input */}
   <Button
     variant="outline"
-    className="text-green-600 border-green-600 hover:bg-green-50 bg-transparent flex items-center"
+    className="text-green-600 border-green-600 hover:bg-green-50 bg-transparent flex items-center ml-30"
     onClick={() => document.getElementById('profileUpload')?.click()}
   >
     <Upload className="w-4 h-4 mr-2" />
@@ -109,7 +109,7 @@ export const AddEmployee = () => {
   </Button>
 </div>
 
-
+<div className='w-120 mt-13'>
           {/* Email Input */}
           <InputField
             name="email"
@@ -119,6 +119,7 @@ export const AddEmployee = () => {
           
             value={form.email}
           />
+          </div>
         </div>
 
         {/* Right: Other Basic Inputs */}

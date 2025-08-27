@@ -1,5 +1,3 @@
-
-
 import InputField from "@/components/InputField";
 import { Button } from "@/components/ui/button";
 import { Upload, ArrowLeft } from "lucide-react";
@@ -140,7 +138,7 @@ export default function AddItem() {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col md:flex-row gap-3 pt-2 mb-10">
+        <div className="flex flex-col md:flex-row gap-3 pt-2 mb-10 ml-110">
           <Button variant="outline" className="px-8 w-full md:w-auto">Cancel</Button>
           <Button type="submit" className="px-8 bg-black hover:bg-gray-800 w-full md:w-auto">Save</Button>
         </div>
